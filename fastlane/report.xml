@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="fastlane">
+  <testsuite name="deploy">
+    <testcase name="0: Verifying required fastlane version" time="0.000448"/>
+    <testcase name="1: default_platform" time="0.000196"/>
+    <testcase name="2: gym" time="25.096424"/>
+    <testcase name="3: sigh" time="12.242061"/>
+    <testcase name="4: increment_version_number" time="0.675577"/>
+    <testcase name="5: pilot" time="32.355593">
+      <failure message="/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/actions/actions_helper.rb:35:in `execute_action'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/runner.rb:128:in `block in execute_action'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/runner.rb:127:in `chdir'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/runner.rb:127:in `execute_action'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/fast_file.rb:137:in `method_missing'&#10;(eval):48:in `block (3 levels) in parse'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/lane.rb:36:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/lane.rb:36:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/runner.rb:51:in `block in execute'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/runner.rb:46:in `chdir'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/runner.rb:46:in `execute'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/lane_manager.rb:43:in `cruise_lane'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/lib/fastlane/command_line_handler.rb:31:in `handle'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/bin/fastlane:36:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.3.5/lib/commander/command.rb:178:in `call'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.3.5/lib/commander/command.rb:153:in `run'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.3.5/lib/commander/runner.rb:428:in `run_active_command'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.3.5/lib/commander/runner.rb:68:in `run!'&#10;/Library/Ruby/Gems/2.0.0/gems/commander-4.3.5/lib/commander/delegates.rb:15:in `run!'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/bin/fastlane:127:in `run'&#10;/Library/Ruby/Gems/2.0.0/gems/fastlane-1.30.2/bin/fastlane:133:in `&lt;top (required)&gt;'&#10;/usr/bin/fastlane:23:in `load'&#10;/usr/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;[31mError uploading ipa file, more information see above[0m"/>
+    </testcase>
+  </testsuite>
+</testsuites>
