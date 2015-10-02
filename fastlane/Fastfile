@@ -1,21 +1,3 @@
-# Customise this file, documentation can be found here:
-# https://github.com/KrauseFx/fastlane/tree/master/docs
-# All available actions: https://github.com/KrauseFx/fastlane/blob/master/docs/Actions.md
-# can also be listed using the `fastlane actions` command
-
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# By default, fastlane will send which actions are used
-# No personal data is shared, more information on https://github.com/fastlane/enhancer
-# Uncomment the following line to opt out
-# opt_out_usage
-
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
 fastlane_version "1.30.1"
 
 default_platform :ios
@@ -23,21 +5,12 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-   	
-    # use the UDID of the newly created provisioning profile
-    ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]    
-    
-    # increment_build_number
-
-    gym # Build your app - more options available
-
-    # xctool # run the tests of your app
+    ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
+    gym
   end
 
   desc "Runs all the tests"
-  lane :test do
-    snapshot
+  lane :build do
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
@@ -45,7 +18,7 @@ platform :ios do
   lane :beta do
     sigh
     increment_version_number
-    pilot
+    pilot(skip_submission: true)
 	
     # sh "your_script.sh"
     # You can also use other beta testing services here
@@ -62,21 +35,10 @@ platform :ios do
   # You can define as many lanes as you want
 
   after_all do |lane|
-    # This block is called, only if the executed lane was successful
-    
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
+
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+
   end
 end
-
-
-# More information about multiple platforms in fastlane: 
-# https://github.com/KrauseFx/fastlane/blob/master/docs/Platforms.md

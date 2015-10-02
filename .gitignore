@@ -1,0 +1,5 @@
+*.ipa
+*.zip
+*.iml
+*.mobileprovision
+fastlane/report.xml
