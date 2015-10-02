@@ -1,5 +1,9 @@
 *.ipa
+**.certSigningRequest
+/fastlane/report.xml
+**.p12
 *.zip
 *.iml
 *.mobileprovision
+**.cer
 fastlane/report.xml
