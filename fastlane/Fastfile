@@ -5,8 +5,8 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     sigh
+    ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     gym
   end
 
