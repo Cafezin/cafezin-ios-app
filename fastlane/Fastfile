@@ -2,7 +2,6 @@ fastlane_version "1.30.1"
 
 default_platform :ios
 
-
 platform :ios do
   before_all do
     cert
@@ -11,34 +10,20 @@ platform :ios do
     gym
   end
 
-  desc "Runs all the tests"
   lane :build do
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
   lane :beta do
     increment_version_number
     pilot(skip_submission: true)
-	
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
   end
 
-  desc "Deploy a new version to the App Store"
-  desc "** Full Markdown** Support: `code`"
   lane :deploy do
-    deliver(skip_deploy: true, force: true)
-    # frameit
   end
-
-  # You can define as many lanes as you want
 
   after_all do |lane|
-
   end
 
   error do |lane, exception|
-
   end
 end
