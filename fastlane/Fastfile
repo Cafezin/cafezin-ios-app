@@ -4,16 +4,18 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    cert
+    
+  end
+
+  lane :build do
+    cert(output_path: "./certificates/")
     sigh(force: true)
     ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     gym
   end
 
-  lane :build do
-  end
-
   lane :beta do
+    build
     increment_version_number
     pilot(skip_submission: true)
   end
