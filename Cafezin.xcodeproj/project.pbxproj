@@ -97,8 +97,8 @@
 		B21ED3511BBC81C700FF7DD4 /* Cafezin */ = {
 			isa = PBXGroup;
 			children = (
+				B2B007411BC44449002BD7FB /* Controllers */,
 				B21ED3521BBC81C700FF7DD4 /* AppDelegate.swift */,
-				B21ED3541BBC81C700FF7DD4 /* ViewController.swift */,
 				B21ED3561BBC81C700FF7DD4 /* Main.storyboard */,
 				B21ED3591BBC81C700FF7DD4 /* Assets.xcassets */,
 				B21ED35B1BBC81C700FF7DD4 /* LaunchScreen.storyboard */,
@@ -123,6 +123,14 @@
 				B21ED3741BBC81C700FF7DD4 /* Info.plist */,
 			);
 			path = CafezinUITests;
+			sourceTree = "<group>";
+		};
+		B2B007411BC44449002BD7FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B21ED3541BBC81C700FF7DD4 /* ViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

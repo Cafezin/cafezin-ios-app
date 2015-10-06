@@ -9,7 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var tokenTextField: UITextField?
+    @IBOutlet weak var connectButton: UIButton!
+    
+    var alertController: UIAlertController = UIAlertController(title: "Erro", message: "Token não pode ser vazio", preferredStyle: .Alert)
+    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {(_) in
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +26,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func connect(sender: AnyObject) {
+        if(tokenTextField?.text == nil || tokenTextField?.text == ""){
+            alertController.presentViewController(self, animated: true, completion: nil)
+        }
+    }
 
 }
 

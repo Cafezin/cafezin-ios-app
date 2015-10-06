@@ -11,26 +11,40 @@ import XCTest
 
 class CafezinTests: XCTestCase {
     
+    class FakeAlert: UIAlertController {
+        var alertShowed = false;
+        override func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+            alertShowed = true
+        }
+    }
+    
+    var viewController: ViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        viewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as? ViewController
+        viewController.loadView()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testButtonExistsAndNameIsConectar() {
+        XCTAssertNotNil(viewController!.connectButton)
+        XCTAssertEqual(viewController!.connectButton.titleLabel?.text, "Conectar")
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEmptyTokenFieldShouldRaiseAnAlert() {
+        viewController.alertController = FakeAlert();
+        viewController.tokenTextField?.text = nil;
+        viewController.connect(viewController);
+        XCTAssertTrue((viewController.alertController as! FakeAlert).alertShowed);
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testFilledTokenFieldShouldNotRaiseAnAlert() {
+        viewController.alertController = FakeAlert();
+        viewController.tokenTextField?.text = "token";
+        viewController.connect(viewController);
+        XCTAssertFalse((viewController.alertController as! FakeAlert).alertShowed);
     }
     
 }
