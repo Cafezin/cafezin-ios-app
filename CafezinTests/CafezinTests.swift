@@ -11,20 +11,12 @@ import XCTest
 
 class CafezinTests: XCTestCase {
     
-    class FakeAlert: UIAlertController {
-        var alertShowed = false;
-        override func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-            alertShowed = true
-        }
-    }
-    
     var viewController: ViewController!
     
     override func setUp() {
         super.setUp()
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil);
-        viewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as? ViewController
-        viewController.loadView()
+        viewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ViewController
+        UIApplication.sharedApplication().keyWindow?.rootViewController = viewController
     }
     
     func testButtonExistsAndNameIsConectar() {
@@ -33,18 +25,17 @@ class CafezinTests: XCTestCase {
     }
     
     func testEmptyTokenFieldShouldRaiseAnAlert() {
-        viewController.alertController = FakeAlert();
         viewController.tokenTextField?.text = nil;
         viewController.connect(viewController);
-        XCTAssertTrue((viewController.alertController as! FakeAlert).alertShowed);
+        XCTAssertTrue(viewController.presentedViewController is UIAlertController)
+        XCTAssertEqual(viewController.presentedViewController?.title, "Erro")
     }
     
     
     func testFilledTokenFieldShouldNotRaiseAnAlert() {
-        viewController.alertController = FakeAlert();
-        viewController.tokenTextField?.text = "token";
+        viewController.tokenTextField?.text = "someToken";
         viewController.connect(viewController);
-        XCTAssertFalse((viewController.alertController as! FakeAlert).alertShowed);
+        XCTAssertFalse(viewController.presentedViewController is UIAlertController);
     }
     
 }

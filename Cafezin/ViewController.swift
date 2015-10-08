@@ -13,12 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var connectButton: UIButton!
     
     var alertController: UIAlertController = UIAlertController(title: "Erro", message: "Token não pode ser vazio", preferredStyle: .Alert)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) {(_) in
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +26,7 @@ class ViewController: UIViewController {
 
     @IBAction func connect(sender: AnyObject) {
         if(tokenTextField?.text == nil || tokenTextField?.text == ""){
-            alertController.presentViewController(self, animated: true, completion: nil)
+            presentViewController(alertController, animated: true, completion: nil)
         }
     }
 
