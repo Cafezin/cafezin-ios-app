@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Token" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYJ-pc-ApD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IP da cafeteira" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYJ-pc-ApD">
                                 <rect key="frame" x="218" y="285" width="164" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="QGb-eI-9at"/>
@@ -34,47 +34,114 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lc-J3-ATd">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="RXv-Xl-tU0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RXv-Xl-tU0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="RXv-Xl-tU0"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMB-nq-E93">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="0WN-36-vDy"/>
+                                </constraints>
+                                <state key="normal" title="Fazer café"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0WN-36-vDy"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="0WN-36-vDy"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="makeCoffee:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toj-wm-CqV"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbM-P6-M8f">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Conectar"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149" id="D4Y-a7-4Ii"/>
+                                </constraints>
+                                <state key="normal" title="Status da cafeteira"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="D4Y-a7-4Ii"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="D4Y-a7-4Ii"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dGA-SY-6yr"/>
+                                    <action selector="getStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ngf-7N-Amz"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zbM-P6-M8f" firstAttribute="top" secondItem="zYJ-pc-ApD" secondAttribute="bottom" constant="52" id="WUj-cZ-Tgf"/>
-                            <constraint firstItem="zbM-P6-M8f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fDN-8B-tS2"/>
-                            <constraint firstItem="zYJ-pc-ApD" firstAttribute="centerX" secondItem="zbM-P6-M8f" secondAttribute="centerX" id="kmD-ts-aMh"/>
-                            <constraint firstItem="zbM-P6-M8f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zUV-RH-3iH"/>
+                            <constraint firstItem="zbM-P6-M8f" firstAttribute="top" secondItem="zYJ-pc-ApD" secondAttribute="bottom" constant="52" id="1ez-qP-KnD"/>
+                            <constraint firstItem="NMB-nq-E93" firstAttribute="centerX" secondItem="zbM-P6-M8f" secondAttribute="centerX" id="HtU-7s-TJU"/>
+                            <constraint firstItem="zbM-P6-M8f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Mrn-88-xjW"/>
+                            <constraint firstItem="zbM-P6-M8f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bil-mN-CZB"/>
+                            <constraint firstItem="zYJ-pc-ApD" firstAttribute="leading" secondItem="0lc-J3-ATd" secondAttribute="trailing" constant="8" id="dgL-xF-3sb"/>
+                            <constraint firstItem="NMB-nq-E93" firstAttribute="top" secondItem="zbM-P6-M8f" secondAttribute="bottom" constant="18" id="e4f-Gp-NTH"/>
+                            <constraint firstItem="0lc-J3-ATd" firstAttribute="centerY" secondItem="zYJ-pc-ApD" secondAttribute="centerY" id="pv4-XH-59A"/>
+                            <constraint firstItem="zbM-P6-M8f" firstAttribute="centerX" secondItem="zYJ-pc-ApD" secondAttribute="centerX" id="scX-Yj-lH6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="0lc-J3-ATd"/>
+                                <exclude reference="NMB-nq-E93"/>
                                 <exclude reference="zbM-P6-M8f"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="kmD-ts-aMh"/>
-                                <exclude reference="WUj-cZ-Tgf"/>
-                                <exclude reference="fDN-8B-tS2"/>
-                                <exclude reference="zUV-RH-3iH"/>
+                                <exclude reference="pv4-XH-59A"/>
+                                <exclude reference="dgL-xF-3sb"/>
+                                <exclude reference="1ez-qP-KnD"/>
+                                <exclude reference="Mrn-88-xjW"/>
+                                <exclude reference="bil-mN-CZB"/>
+                                <exclude reference="scX-Yj-lH6"/>
+                                <exclude reference="HtU-7s-TJU"/>
+                                <exclude reference="e4f-Gp-NTH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="0lc-J3-ATd"/>
+                                <include reference="NMB-nq-E93"/>
                                 <include reference="zbM-P6-M8f"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="kmD-ts-aMh"/>
-                                <include reference="WUj-cZ-Tgf"/>
-                                <include reference="fDN-8B-tS2"/>
-                                <include reference="zUV-RH-3iH"/>
+                                <include reference="pv4-XH-59A"/>
+                                <include reference="dgL-xF-3sb"/>
+                                <include reference="1ez-qP-KnD"/>
+                                <include reference="Mrn-88-xjW"/>
+                                <include reference="bil-mN-CZB"/>
+                                <include reference="scX-Yj-lH6"/>
+                                <include reference="HtU-7s-TJU"/>
+                                <include reference="e4f-Gp-NTH"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="connectButton" destination="zbM-P6-M8f" id="pmg-ze-1m6"/>
-                        <outlet property="tokenTextField" destination="zYJ-pc-ApD" id="ojg-e5-X4c"/>
+                        <outlet property="ipAddress" destination="zYJ-pc-ApD" id="WyP-5H-b5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

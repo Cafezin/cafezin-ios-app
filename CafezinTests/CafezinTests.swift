@@ -19,22 +19,29 @@ class CafezinTests: XCTestCase {
         UIApplication.sharedApplication().keyWindow?.rootViewController = viewController
     }
     
-    func testButtonExistsAndNameIsConectar() {
-        XCTAssertNotNil(viewController!.connectButton)
-        XCTAssertEqual(viewController!.connectButton.titleLabel?.text, "Conectar")
-    }
-    
-    func testEmptyTokenFieldShouldRaiseAnAlert() {
-        viewController.tokenTextField?.text = nil;
-        viewController.connect(viewController);
+    func testEmptyIpFieldShouldRaiseAnAlertOnGetStatus() {
+        viewController.ipAddress?.text = nil;
+        viewController.getStatus(viewController);
         XCTAssertTrue(viewController.presentedViewController is UIAlertController)
-        XCTAssertEqual(viewController.presentedViewController?.title, "Erro")
+        XCTAssertEqual(viewController.presentedViewController?.title, "Ops!")
     }
     
+    func testFilledIpFieldShouldNotRaiseAnAlertOnGetStatus() {
+        viewController.ipAddress?.text = "someIp";
+        viewController.getStatus(viewController);
+        XCTAssertFalse(viewController.presentedViewController is UIAlertController);
+    }
     
-    func testFilledTokenFieldShouldNotRaiseAnAlert() {
-        viewController.tokenTextField?.text = "someToken";
-        viewController.connect(viewController);
+    func testEmptyIpFieldShouldRaiseAnAlertOnMakeCoffee() {
+        viewController.ipAddress?.text = nil;
+        viewController.makeCoffee(viewController);
+        XCTAssertTrue(viewController.presentedViewController is UIAlertController)
+        XCTAssertEqual(viewController.presentedViewController?.title, "Ops!")
+    }
+    
+    func testFilledIpFieldShouldNotRaiseAnAlertOnMakeCoffee() {
+        viewController.ipAddress?.text = "someIp";
+        viewController.makeCoffee(viewController);
         XCTAssertFalse(viewController.presentedViewController is UIAlertController);
     }
     

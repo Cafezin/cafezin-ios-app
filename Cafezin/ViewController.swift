@@ -9,10 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var tokenTextField: UITextField?
-    @IBOutlet weak var connectButton: UIButton!
     
-    var alertController: UIAlertController = UIAlertController(title: "Erro", message: "Token não pode ser vazio", preferredStyle: .Alert)
+    @IBOutlet weak var ipAddress: UITextField!
+
+    
+    var alertController: UIAlertController = UIAlertController(title: "Ops!", message: "Insira o IP da cafeteira", preferredStyle: .Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func connect(sender: AnyObject) {
-        if(tokenTextField?.text == nil || tokenTextField?.text == ""){
+    @IBAction func getStatus(sender: AnyObject) {
+        if(ipAddress?.text == nil || ipAddress?.text == ""){
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func makeCoffee(sender: AnyObject) {
+        if(ipAddress?.text == nil || ipAddress?.text == ""){
             presentViewController(alertController, animated: true, completion: nil)
         }
     }
