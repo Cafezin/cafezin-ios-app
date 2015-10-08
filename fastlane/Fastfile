@@ -8,8 +8,8 @@ platform :ios do
   end
 
   lane :build do
-    cert(output_path: "./certificates/")
-    sigh(force: true)
+    cert
+    sigh
     ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     gym
   end
