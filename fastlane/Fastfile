@@ -11,6 +11,7 @@ platform :ios do
     cert
     sigh
     ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
+    cocoapods
     gym
   end
 
