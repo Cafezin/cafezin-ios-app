@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         if(ipAddress?.text == nil || ipAddress?.text == ""){
             presentViewController(alertController, animated: true, completion: nil)
         }
+        
+        CoffeMakerRepository.getStatus(ipAddress.text!, onSuccess: { response in
+            print(response)
+            }, onError: { error in
+                print(error)
+        })
     }
     
     @IBAction func makeCoffee(sender: AnyObject) {

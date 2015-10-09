@@ -8,3 +8,18 @@
 
 import Foundation
 import Alamofire
+
+class CoffeMakerRepository: NSObject {
+    class func getStatus(address: String, onSuccess: ((response: String) -> Void)!, onError:  ((error: NSError) -> Void)!) {
+       Alamofire.request(.GET, address, parameters: nil)
+            .responseJSON { response in
+                switch response.result {
+                case .Success(let value):
+                    onSuccess(response: value.valueForKey("status") as! String)
+                case .Failure(let error):
+                    print(error)
+                    onError(error: error)
+                }
+            }
+    }
+}
