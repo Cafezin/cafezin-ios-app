@@ -14,11 +14,10 @@ class CoffeMakerRepository: NSObject {
        Alamofire.request(.GET, address, parameters: nil)
             .responseJSON { response in
                 switch response.result {
-                case .Success(let value):
-                    onSuccess(response: value.valueForKey("status") as! String)
-                case .Failure(let error):
-                    print(error)
-                    onError(error: error)
+                    case .Success(let value):
+                        onSuccess(response: value.valueForKey("status") as! String)
+                    case .Failure(let error):
+                        onError(error: error)
                 }
             }
     }

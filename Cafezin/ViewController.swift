@@ -32,8 +32,8 @@ class ViewController: UIViewController {
         
         CoffeMakerRepository.getStatus(ipAddress.text!, onSuccess: { response in
             print(response)
-            }, onError: { error in
-                print(error)
+        }, onError: { error in
+            print(error)
         })
     }
     
