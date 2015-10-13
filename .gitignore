@@ -7,3 +7,4 @@
 *.mobileprovision
 **.cer
 fastlane/report.xml
+Pods
