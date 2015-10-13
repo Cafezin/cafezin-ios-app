@@ -10,8 +10,8 @@ platform :ios do
   lane :build do
     cert
     sigh(force: true)
-    ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     cocoapods
+    ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     gym(scheme: "Cafezin", workspace: "Cafezin.xcworkspace")
   end
 
