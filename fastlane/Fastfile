@@ -12,7 +12,7 @@ platform :ios do
     sigh(force: true)
     ENV["PROFILE_UDID"] = lane_context[SharedValues::SIGH_UDID]
     cocoapods
-    gym(scheme: "Cafezin")
+    gym(scheme: "Cafezin", workspace: "Cafezin.xcworkspace")
   end
 
   lane :beta do
