@@ -41,6 +41,12 @@ class ViewController: UIViewController {
         if(ipAddress?.text == nil || ipAddress?.text == ""){
             presentViewController(alertController, animated: true, completion: nil)
         }
+        
+        CoffeMakerRepository.makeCoffee(ipAddress.text!, onSuccess: { response in
+            print(response)
+        }, onError: { error in
+            print(error)
+        })
     }
 
 }
