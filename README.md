@@ -6,6 +6,11 @@ App to connect and control a coffee machine through the internet.
 1. ```` sudo gem install fastlane ````
 2. ```` sudo gem intall cocoapods ````
 
+## How to run?
+
+- ```` pod install `````
+- Open the file Cafezin.xcworkspace
+
 ## How to build the application?
 
 ```` fastlane build ````
