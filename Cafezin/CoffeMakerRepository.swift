@@ -10,8 +10,11 @@ import Foundation
 import Alamofire
 
 class CoffeMakerRepository: NSObject {
+    static let serviceEndpoint = "/cafe"
+    static let protocolString = "http://"
+    
     class func getStatus(address: String, onSuccess: ((response: String) -> Void)!, onError:  ((error: NSError) -> Void)!) {
-       Alamofire.request(.GET, address, parameters: nil)
+       Alamofire.request(.GET, protocolString + address + serviceEndpoint, parameters: nil)
             .responseJSON { response in
                 switch response.result {
                     case .Success(let value):
@@ -23,7 +26,7 @@ class CoffeMakerRepository: NSObject {
     }
     
     class func makeCoffee(address: String, onSuccess: ((response: String) -> Void)!, onError:((error: NSError) -> Void)!) {
-        Alamofire.request(.POST, address, parameters: nil)
+        Alamofire.request(.POST, protocolString + address + serviceEndpoint, parameters: nil)
             .responseJSON { response in
                 switch response.result {
                 case .Success(let value):
