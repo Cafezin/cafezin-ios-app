@@ -16,8 +16,8 @@ platform :ios do
   end
 
   lane :beta do
-    build 
     increment_version_number
+    build 
     pilot(skip_submission: true)
   end
 
