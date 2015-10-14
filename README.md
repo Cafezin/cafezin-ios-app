@@ -8,7 +8,7 @@ App to connect and control a coffee machine through the internet.
 
 ## How to run?
 
-- ```` pod install `````
+- ```` pod install ````
 - Open the file Cafezin.xcworkspace
 
 ## How to build the application?
