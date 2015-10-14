@@ -12,12 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ipAddress: UITextField!
 
-    
-    var alertController: UIAlertController = UIAlertController(title: "Ops!", message: "Insira o IP da cafeteira", preferredStyle: .Alert)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,26 +23,33 @@ class ViewController: UIViewController {
 
     @IBAction func getStatus(sender: AnyObject) {
         if(ipAddress?.text == nil || ipAddress?.text == ""){
-            presentViewController(alertController, animated: true, completion: nil)
+            showAlert("Ops!", message: "Insira o IP da cafeteira")
         }
         
         CoffeMakerRepository.getStatus(ipAddress.text!, onSuccess: { response in
-            print(response)
+            self.showAlert("Status da cafeteira", message: response)
         }, onError: { error in
-            print(error)
+            self.showAlert("Erro ao ler status da cafeteira", message: "Tente novamente mais tarde")
         })
     }
     
     @IBAction func makeCoffee(sender: AnyObject) {
+        
         if(ipAddress?.text == nil || ipAddress?.text == ""){
-            presentViewController(alertController, animated: true, completion: nil)
+            self.showAlert("Ops!", message: "Insira o IP da cafeteira")
         }
         
         CoffeMakerRepository.makeCoffee(ipAddress.text!, onSuccess: { response in
-            print(response)
+            self.showAlert("Fazendo café", message: "Seu café estará pronto em 10 minutos")
         }, onError: { error in
-            print(error)
+            self.showAlert("Erro ao fazer café", message: "Tente novamente mais tarde")
         })
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alertController, animated:true, completion:nil)
     }
 
 }
